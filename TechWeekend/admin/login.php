@@ -27,9 +27,9 @@ if(isset($_SESSION['adminlogin'])){
   top: 0;
   width: 100%;
   height: 100%;
-  background: #86C232;
+  background-image: url("img/wall.jpg");
   background-size:cover ;
-  -webkit-filter: blur(7px);
+  -webkit-filter: blur(3px);
 }
 
 form {
@@ -98,10 +98,10 @@ form button[type=submit] {
 
 <div style="text-align: center">
 
-<img src="" float="left" alt="the logo" width="500" height="200">
+<img src="../images/Logo_with_name_color.png" float="left" alt="the logo" width="500" height="200">
 <br>
 <form method="post" action="log.php">
-<h2 style ="color:#04223a;"> Admin Login</h2>
+<h2 style> Admin Login</h2>
 
 <br>
 <div>

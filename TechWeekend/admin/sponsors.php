@@ -14,6 +14,23 @@ include("sessions_admin.php");
        }
      }
 
+     if (isset($_POST['btn-upload-sec'])){
+       $name = mysqli_real_escape_string($db, $_POST['sectionname']);
+       $sql="INSERT INTO section (name) values ('$name')";
+       $res=mysqli_query($db,$sql);
+       if ($res) {
+
+       $msg = "Section Inserted";
+       echo "<script type='text/javascript'>alert('$msg');window.location.href='sponsors.php';</script>";
+      }
+      else{
+
+       $msg = "Failed to create section";
+       echo "<script type='text/javascript'>alert('$msg');window.location.href='sponsors.php';</script>";
+
+     }
+     }
+
        if (isset($_POST['btn-upload'])) {
          $target = "img/sponsors/".basename($_FILES["fileimg"]["name"]);
          $fileimg=$_FILES['fileimg']['name'];
@@ -24,7 +41,8 @@ include("sessions_admin.php");
          $contact = mysqli_real_escape_string($db, $_POST['contact']);
          $email = mysqli_real_escape_string($db, $_POST['email']);
          $link = mysqli_real_escape_string($db, $_POST['link']);
-         $sql = "insert into mix(imgpath,name,contact,email,link,type) values ('$fileimg','$name','$contact','$email','$link','sponsors')";
+         $sec= mysqli_real_escape_string($db, $_POST['sec']);
+         $sql = "insert into mix(imgpath,name,contact,email,link,type) values ('$fileimg','$name','$contact','$email','$link','$sec')";
          mysqli_query($db,$sql);
 
        if (move_uploaded_file($_FILES['fileimg']['tmp_name'],$target)) {
@@ -48,7 +66,8 @@ include("sessions_admin.php");
      mysqli_query($db, $delete);
      header("location: sponsors.php");
    }
-     ?>
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +93,7 @@ include("sessions_admin.php");
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
-      height: 100%;
+      height: 100vh;
     }
 
     /* Set black background color, white text and some padding */
@@ -113,16 +132,16 @@ include("sessions_admin.php");
         <li><a href="agenda.php">Keynote</a></li>
         <li><a href="briefabout.php">Brief</a></li>
         <li><a href="gallery.php">Gallery</a></li>
-        <li><a href="speakers.php">Speakers</a></li>
-        <li class="active"><a href="sponsors.php">Sponsors</a></li>
-        <li><a href="partners.php">Partners</a></li>
-        <li><a href="stalls.php">Stalls</a> </li>
+        <li><a href="speakers.php">Speaker</a></li>
+        <li class="active"><a href="sponsors.php">Sponsor & Partners</a></li>
+        <li><a href="stalls.php">Stall</a> </li>
         <li><a href="theday.php">The Day</a></li>
         <li><a href="blog.php">Blog</a> </li>
         <li><a href="venue.php">Venue</a></li>
+        <li><a href="contact.php">FAQ</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
@@ -133,11 +152,27 @@ include("sessions_admin.php");
 
     <div class="col-sm-3 sidenav" style="background:#86C232;" >
       <form action="sponsors.php" method="post" enctype="multipart/form-data">
+          <label for="banner">Section:</label>
+          <div class="form-group">
+          <input type="text" name="sectionname" placeholder="Title"><br>
+          </div>
+        <button type="submit" class="btn btn-default" name="btn-upload-sec">Upload</button>
+        </form>
+        <br>
+      <form action="sponsors.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="banner">Banner:</label>
-          <input type="file" name="fileimg" id="fileimg">
         </div>
           <div class="form-group">
+            <select name="sec">
+              <?php $select="SELECT * from section";
+                    $res = mysqli_query($db,$select);
+                    if(mysqli_num_rows($res)>0){
+                    while($row=mysqli_fetch_assoc($res)){?>
+                    <option><?php echo $row['name']; ?></option>
+              <?php }} ?>
+            </select>
+            <input type="file" name="fileimg" id="fileimg">
             <input type="text" name="name" placeholder="Name"><br>
             <input type="digit" pattern="[6789][0-9]{9}" name="contact" placeholder="Contact"><br>
             <input type="email" name="email" placeholder="Email"><br>
@@ -145,11 +180,12 @@ include("sessions_admin.php");
           </div>
         <button type="submit" class="btn btn-default" name="btn-upload">Upload</button>
       </form>
+
     </div>
     <div class="col-sm-9 text-left" style="overflow-x:auto;color:white;">
       <table class="table table-dark table-responsive">
         <?php
-        $select="SELECT * FROM mix where type='sponsors'";
+        $select="SELECT * FROM mix order by type";
         $res=mysqli_query($db,$select);
         if(mysqli_num_rows($res)>0){
           echo "<tr>
@@ -158,6 +194,7 @@ include("sessions_admin.php");
                 <th>Name</th>
                 <th>Contact</th>
                 <th>Email</th>
+                <th>Type</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>";
@@ -167,12 +204,14 @@ include("sessions_admin.php");
                 $nameURL=$row['name'];
                   $contactURL=$row['contact'];
                     $emailURL=$row['email'];
+                    $type=$row['type'];
               echo " <tr>";?>
         <td><img class="img-responsive" src='<?php echo $imageURL;?>' style="height:100px; width:100px; margin:auto;"></td>
           <td><h5 style="text-align:center; overflow:hidden"><?php echo $linkURL;?></h5></td>
         <td><h5 style="text-align:center; overflow:hidden"><?php echo $nameURL;?></h5></td>
         <td><h5 style="text-align:center; overflow:hidden"><?php echo $contactURL;?></h5></td>
         <td><h5 style="text-align:center; overflow:hidden"><?php echo $emailURL;?></h5></td>
+        <td><h5 style="text-align:center; overflow:hidden"><?php echo $type;?></h5></td>
         <td><a href="sponsors.php?delete=<?php echo $row['sid']?>">Delete File </a></td>
         <td><a href="editspon.php?edit=<?php echo $row['sid']?>">Edit File</a></td>
       </tr>

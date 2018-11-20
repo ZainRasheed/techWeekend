@@ -114,24 +114,22 @@ include("sessions_admin.php");
         <li><a href="agenda.php">Keynote</a></li>
         <li><a href="briefabout.php">Brief</a></li>
         <li><a href="gallery.php">Gallery</a></li>
-        <li class="active"><a href="speakers.php">Speakers</a></li>
-        <li><a href="sponsors.php">Sponsors</a></li>
-        <li><a href="partners.php">Partners</a></li>
-        <li><a href="stalls.php">Stalls</a> </li>
+        <li class="active"><a href="speakers.php">Speaker</a></li>
+        <li><a href="sponsors.php">Sponsor & Partners</a></li>
+        <li><a href="stalls.php">Stall</a> </li>
         <li><a href="theday.php">The Day</a></li>
         <li><a href="blog.php">Blog</a> </li>
         <li><a href="venue.php">Venue</a></li>
+        <li><a href="contact.php">FAQ</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
 <div class="container-fluid text-center">
   <div class="row content">
-
     <div class="col-sm-3 sidenav" style="background:#86C232;" >
       <form method="post" role="form" action="speakers.php" enctype="multipart/form-data">
            <div class="form-group">
@@ -142,7 +140,6 @@ include("sessions_admin.php");
              <input type="text" name="company" placeholder="Company"><br>
              <input type="text" name="link" placeholder="Link"><br>
        </div>
-
        <button type="submit" class="btn btn-default" name="btn-upload">Upload</button>
  </form>
     </div>
@@ -187,7 +184,6 @@ include("sessions_admin.php");
     </div>
   </div>
 </div>
-
 <footer class="container-fluid text-center navbar-fixed-bottom">
   <p>&copy;techweekend-2018</p>
 </footer>

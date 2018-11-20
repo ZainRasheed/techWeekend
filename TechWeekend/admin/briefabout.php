@@ -93,16 +93,16 @@ include("sessions_admin.php");
         <li><a href="agenda.php">Keynote</a></li>
         <li  class="active"><a href="briefabout.php">Brief</a></li>
         <li><a href="gallery.php">Gallery</a></li>
-        <li><a href="speakers.php">Speakers</a></li>
-        <li><a href="sponsors.php">Sponsors</a></li>
-        <li><a href="partners.php">Partners</a></li>
+        <li><a href="speakers.php">Speaker</a></li>
+        <li><a href="sponsors.php">Sponsor & Partners</a></li>
+        <li><a href="stalls.php">Stall</a> </li>
         <li><a href="theday.php">The Day</a></li>
-        <li><a href="stalls.php">Stalls</a> </li>
         <li><a href="blog.php">Blog</a> </li>
         <li><a href="venue.php">Venue</a></li>
+        <li><a href="contact.php">FAQ</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
@@ -129,14 +129,12 @@ include("sessions_admin.php");
           echo "<tr>
                 <th style='text-align:center;color:white;'>Text</th>
                 <th style='text-align:center;'>Delete</th>
-                <th style='text-align:center;'>Edit</th>
             </tr>";
             while($row=mysqli_fetch_assoc($res)){
               $idU=$row['para'];
               echo " <tr>";?>
         <td><h4 style="text-align:center;color:white; overflow:hidden"><?php echo $idU;?></h4></td>
         <td><a href="briefabout.php?delete=<?php echo $row['fid']?>">Delete</a></td>
-        <td><a href="briefabout.php?edit=<?php echo $row['fid']?>">Edit</a></td>
       </tr>
       <?php
 }

@@ -1,33 +1,7 @@
 <?php
 include("connect.php");
 include("sessions_admin.php");
-       if (isset($_POST['btn-upload'])) {
-         $audi=mysqli_real_escape_string($db, $_POST['audi']);
-         $sql = "insert into venue(audi) values ('$audi')";
-         $res = mysqli_query($db,$sql);
-
-       if ($res) {
-
-         $msg = "Venue uploaded successfully";
-         echo "<script type='text/javascript'>alert('$msg');window.location.href='venue.php';</script>";
-
-       }
-       else{
-
-         $msg = "Failed to upload Venue";
-         echo "<script type='text/javascript'>alert('$msg');window.location.href='venue.php';</script>";
-
-       }
-
-     }
-     if( isset($_GET['delete']) )
-     {
-     $id=$_GET['delete'];
-     $delete="delete from venue where vid='$id'";
-     mysqli_query($db, $delete);
-     header("location: venue.php");
-   }
-     ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,6 +45,9 @@ include("sessions_admin.php");
       }
       .row.content {height:auto;}
     }
+    td{
+      color:white;
+    }
   </style>
 </head>
 <body style="background:rgba(0, 0, 0, 0.9);font-family: 'Raleway';">
@@ -97,8 +74,8 @@ include("sessions_admin.php");
         <li><a href="stalls.php">Stall</a> </li>
         <li><a href="theday.php">The Day</a></li>
         <li><a href="blog.php">Blog</a> </li>
-        <li class="active"><a href="venue.php">Venue</a></li>
-        <li><a href="contact.php">FAQ</a></li>
+        <li><a href="venue.php">Venue</a></li>
+        <li class="active"><a href="contact.php">FAQ</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -109,44 +86,69 @@ include("sessions_admin.php");
 
 <div class="container-fluid text-center">
   <div class="row content">
+    <?php $query="select * from contact";
+    $result= mysqli_query($db,$query) or die(mysqli_error($db));?>
+    <table class="table table-bordered table-responsive">
 
-    <div class="col-sm-3 sidenav" style="background:#86C232;" >
-      <form action="venue.php" method="post" enctype="multipart/form-data">
-        <center><h3 style="color:white">VENUE</h3></center>
-        <div class="form-group">
-          <input type="text" name="audi" placeholder="Audi/Room No">
-        </div>
-        <button type="submit" class="btn btn-default" name="btn-upload">Upload</button>
-      </form>
-    </div>
-    <div class="col-sm-9 text-left" style="overflow-x:auto;color:white;">
-      <table class="table table-dark table-responsive">
+      <!--Table head-->
+      <thead>
+        <tr class='success'>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Message</th>
+          <th>Answer</th>
+          <th>Status</th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+
+      <!--Table body-->
+      <tbody>
         <?php
-        $select="SELECT * FROM venue";
-        $res=mysqli_query($db,$select);
-        if(mysqli_num_rows($res)>0){
-          echo "<tr>
-                <th>Venue ID</th>
-                <th>Audi/Room number</th>
-                <th>Delete</th>
-            </tr>";
-            while($row=mysqli_fetch_assoc($res)){
-              $idU=$row['vid'];
-              $imageURL = $row['audi'];
-              echo " <tr>";?>
-        <td><h4 style="text-align:center; overflow:hidden"><?php echo $idU;?></h4></td>
-        <td><h4 style="text-align:center; overflow:hidden"><?php echo $imageURL;?></h4></td>
-        <td><a href="venue.php?delete=<?php echo $row['vid']?>">Delete</a></td>
-      </tr>
-      <?php
-}
-}
-?>
-</table>
-    </div>
+        $slno=0;
+         while ( $row=mysqli_fetch_array($result)) {
+        $slno++;
+           ?>
+          <form action="qupdate1.php" method="post">
+        <tr>
+          <th scope="row"><?php echo $slno ?></th>
+            <input type="hidden" name="PKid" value=<?php echo $row['cid'] ?>>
+            <input type="hidden" name="email" value=<?php echo $row['email']; ?>>
+          <td><?php echo $row['name'] ?></td>
+          <td><?php echo $row['email'] ?></td>
+          <td><?php echo $row['subject'] ?></td>
+          <td><?php echo $row['message'] ?></td>
+
+
+          <?php if ($row['answer']==null) {?>
+            <td> <textarea required row=50 column=100 name='textarea'></textarea></td>
+            <td> <p class="text-muted">Please answer!</p> </td>
+            <td>
+               <button type="submit" name="button" class="btn btn-outline-success">Submit</button>
+               &nbsp
+               <a href="qupdate2.php?PKid=<?php echo $row['cid']; ?>"><button type="button" name="button" class="btn btn-outline-danger">Ignore</button></a>
+            </td>
+
+          <?php }else {?>
+            <td><?php echo $row['answer']; ?></td>
+            <td>
+            <button type="submit" name="button" class="btn btn-outline-success" disabled>Submit</button>
+            &nbsp
+            <button type="submit" name="button" class="btn btn-outline-danger" disabled>Ignore</button>
+            </td>
+            <?php } ?>
+        </tr>
+      </form>
+      <?php } ?>
+      </tbody>
+      <!--Table body-->
+    </table>
+      </section>
   </div>
 </div>
-
 <footer class="container-fluid text-center navbar-fixed-bottom">
   <p>&copy;techweekend-2018</p>
 </footer>

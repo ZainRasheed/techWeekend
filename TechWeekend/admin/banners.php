@@ -20,9 +20,9 @@ include("sessions_admin.php");
          $error = $_FILES['fileimg']['error'];
          $imgtype=$_FILES['fileimg']['type'];
          $ext= GetImageExtension($imgtype);
-         $title = $_POST['title'];
+         $title = mysqli_real_escape_string($db,$_POST['title']);
          $sql = "insert into fusion(imgpath,para,type) values ('$fileimg','$title','banner')";
-         mysqli_query($db,$sql);
+         mysqli_query($db,$sql) or die(mysqli_error($db));
 
        if (move_uploaded_file($_FILES['fileimg']['tmp_name'],$target)) {
 
@@ -111,16 +111,16 @@ include("sessions_admin.php");
         <li><a href="agenda.php">Keynote</a></li>
         <li><a href="briefabout.php">Brief</a></li>
         <li><a href="gallery.php">Gallery</a></li>
-        <li><a href="speakers.php">Speakers</a></li>
-        <li><a href="sponsors.php">Sponsors</a></li>
-        <li><a href="partners.php">Partners</a></li>
+        <li><a href="speakers.php">Speaker</a></li>
+        <li><a href="sponsors.php">Sponsor & Partners</a></li>
+        <li><a href="stalls.php">Stall</a> </li>
         <li><a href="theday.php">The Day</a></li>
-        <li><a href="stalls.php">Stalls</a> </li>
         <li><a href="blog.php">Blog</a> </li>
         <li><a href="venue.php">Venue</a></li>
+        <li><a href="contact.php">FAQ</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>

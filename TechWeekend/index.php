@@ -26,6 +26,46 @@
         height: 100vh;
       }
     }
+    #img2 .img-fluid{
+      height: 35vh;
+      width: 100%;
+    }
+    #img3 .img-fluid{
+      height: 50vh;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      #img2 .img-fluid,
+      #img3 .img-fluid{
+        max-width: 100%;
+        height: 50vh;
+      }
+    }
+    .fa-facebook:hover{
+        color:#29487d
+    }
+    .fa-instagram:hover{
+        border-radius: 5px;
+        color: #fff;
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    }
+    .fa-linkedin:hover{
+        color: #0077B5;
+    }
+
+    .fa-twitter:hover{
+        color:#1DA1F2;
+    }
+
+    /* subfooter */
+
+    #sub-footer{
+        text-align: center;
+        background: #333;
+        color: #000;
+        padding-top: 10px;
+    }
+
     .regButton {
       background-color: #61892F;
       color: white;
@@ -43,7 +83,7 @@
       background-color: #86C232;
       height: 250px;
     }
-    hr,.bg22{
+    .bg22{
       background-color: #86C232;
     }
     .textcolor1{
@@ -76,7 +116,7 @@
            border-radius: 50%;
        }
       .cd1:hover{
-         background-color: #61892F;
+         background-color: #0072ff;
          transform: scale(1.1);
         }
 
@@ -89,15 +129,102 @@
       img{
         height: 30vh;
       }
+      hr,.heh {
+         background: -webkit-linear-gradient(left, #00c6ff,#0072ff);
+         background: -o-linear-gradient(right, #00c6ff ,#0072ff);
+         background: -moz-linear-gradient(right, #00c6ff,#0072ff);
+         background: linear-gradient(to right, #00c6ff,#0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .foot:hover, .foot:active,.head:hover, .head:active {font-size: 110%;}
+      .foot:hover, .foot:active{color: blue;}
+      /*hover effect */
+      .hovereffect {
+        width: 100%;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        cursor: default;
+      }
+
+      .hovereffect .overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+      }
+
+      .hovereffect .hoverover{
+        display: block;
+        position: relative;
+        -webkit-transition: all 0.4s ease-in;
+        transition: all 0.4s ease-in;
+      }
+
+      .hovereffect:hover .hoverover{
+        filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+        filter: grayscale(1) blur(3px);
+        -webkit-filter: grayscale(1) blur(3px);
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+
+      .hovereffect h2 {
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .hovereffect a.info {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        border: 1px solid #fff;
+        margin: 50px 0 0 0;
+        background-color: transparent;
+      }
+
+      .hovereffect a.info:hover {
+        box-shadow: 0 0 5px #fff;
+      }
+
+      .hovereffect a.info, .hovereffect h2 {
+        -webkit-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        transform: scale(0.7);
+        -webkit-transition: all 0.4s ease-in;
+        transition: all 0.4s ease-in;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        color: #fff;
+        text-transform: uppercase;
+      }
+
+      .hovereffect:hover a.info, .hovereffect:hover h2 {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+      }
 
     </style>
   </head>
-  <body class="wow scroll reveal">
+  <body>
     <header>
 
           <!--Navbar -->
           <nav class="navbar navbar-expand-lg navbar-dark ">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#"><img src="images/Logo_with_name_color.png" style="height:60px;width:140px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3"
               aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -105,44 +232,44 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="#home">Home
+                  <a class="head nav-link" href="#home">Home
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#About">About</a>
+                  <a class="head nav-link" href="#About">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#Description">Features</a>
+                  <a class="head nav-link" href="#Description">Features</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Agenda.php">Agenda</a>
+                  <a class="head nav-link" href="Agenda.php">Agenda</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-3" data-toggle="dropdown" aria-haspopup="true"
+                  <a class="head nav-link dropdown-toggle" id="navbarDropdownMenuLink-3" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">People with us
                   </a>
                   <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-3">
-                    <a class="dropdown-item" href="#Speakers">Speakers</a>
-                    <a class="dropdown-item" href="#Partners">Sponsers</a>
-                    <a class="dropdown-item" href="#Partners">Partners</a>
+                    <a class="head dropdown-item" href="#Speakers">Speakers</a>
+                    <a class="head dropdown-item" href="#Partners">Sponsers</a>
+                    <a class="head dropdown-item" href="#Partners">Partners</a>
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#Gallery">Gallery</a>
+                  <a class="head nav-link" href="#Gallery">Gallery</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#workWithUs">Work with us</a>
+                  <a class="head nav-link" href="#workWithUs">Work with us</a>
                 </li>
               </ul>
 
               <!-- Social Icon  -->
               <ul class="navbar-nav nav-flex-icons">
                 <li>
-                  <button type="button" data-toggle="modal" data-target="#orangeModalReg" class="btn regButton waves-effect">Register</button>
+                  <button type="button" data-toggle="modal" data-target="#orangeModalReg" class="blue-gradient btn waves-effect">Register</button>
                 </li>
                 <li>
-                  <a href="#contactus"><button type="button" class="btn regButton px-3"><i class="fa fa-phone" aria-hidden="true"></i></button></a>
+                  <a href="#contactus"><button type="button" class="btn blue-gradient px-3"><i class="fa fa-phone" aria-hidden="true"></i></button></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link">
@@ -151,12 +278,17 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link">
-                    <i class="fa fa-twitter fa-lg light-green-text-2"></i>
+                    <i class="fa fa-linkedin fa-lg light-green-text-2"></i>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link">
                     <i class="fa fa-instagram fa-lg light-green-text-2"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">
+                    <i class="fa fa-twitter fa-lg light-green-text-2"></i>
                   </a>
                 </li>
 
@@ -186,14 +318,14 @@
           <div id='home' class="jumbotron jumbocolor white-text">
 
             <!-- Title -->
-            <h3 class="card-title jumbocolor-item textcolor1 h3"><?php echo $arrayHead['para']; ?></h3>
+            <h3 class="card-title jumbocolor-item heh h3"><?php echo $arrayHead['para']; ?></h3>
 
             <!-- Subtitle -->
-            <h1 class=" h1 jumbocolor-item ">Tech Weekend is here!</h1>
-        <!--    <div class="container-fluid">
+            <h1 class="h1 jumbocolor-item ">Tech Weekend is here!</h1>
+      <!--      <div class="container-fluid">
               <div class="row">
                 <div class="col-md-4">
-                  <img src="admin/img/jhhjvbanner/<?php //echo $arrayHead['img']; ?>" class="img-fluid z-depth-1" alt="Tech Weekend is here">
+                  <img src="admin/img/banner/<?php //echo $arrayHead['img']; ?>" class="img-fluid z-depth-1" alt="Tech Weekend is here">
                 </div>
               </div>
             </div> -->
@@ -204,7 +336,7 @@
               <!-- Grid column -->
               <div class="col-xl-7 jumbocolor-item ">
 
-                <p class="card-text textcolor2"> <?php echo $arrayAbout['para']; ?> </p>
+                <p class="card-text mt-3 textcolor2"> <?php echo $arrayAbout['para']; ?> </p>
 
               </div>
               <!-- Grid column -->
@@ -269,19 +401,18 @@
           <div class="row">
             <div class="col-12 text-center">
               <h3 class="h3">What we do?</h3>
-              <p><?php echo $arrayAbout['para']; ?></p>
+              <p><?php// echo $arrayAbout['para']; ?></p>
             </div>
             <div class="col">
               <div class="card-deck">
                 <!-- Card -->
-                <div class="card bg2 px-4" >
+                <div class="blue-gradient card px-4" >
 
                   <!-- Content -->
                   <div class="text-white text-center align-items-center" >
                     <div>
-                      <h5 class="dark-grey-text py-4 "><i class="fa fa-pie-chart"></i> Woekshops</h5>
-                      <p class="py-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
-                        optio vero odio</p>
+                      <h5 class="dark-grey-text py-4 "><i class="fa fa-pie-chart"></i> Workshops</h5>
+                      <p class="py-1">An amazing platform to build with hands-on experience on the latest technologies by high profiled expert speakers on the top notch technologies around the world. It's a huge opportunity for the young budding techies to learn new and trending technology around them on the second day day of complete tech driven interesting hands on code labs by innovators around.</p>
                       <a href="Agenda.php" class="btn bg1 mt-4"><i class="fa fa-clone left"></i > View More >></a>
                     </div>
                   </div>
@@ -289,14 +420,13 @@
                 </div>
                 <!-- Card -->
               <!-- Card -->
-              <div class="card bg2 px-4" >
+              <div class="card blue-gradient px-4" >
 
                 <!-- Content -->
                 <div class="text-white text-center align-items-center" >
                   <div>
                     <h5 class="dark-grey-text py-4 "><i class="fa fa-pie-chart"></i> Key Notes</h5>
-                    <p class="py-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
-                      optio vero odio</p>
+                    <p class="py-1">A platform to learn and mind blogging tech talks by high profiled expert speakers on the top notch technologies around the world. It's a huge opportunity for the young techies to make themselves aware of new and trending technology around them on the first day of complete tech driven interesting hands on code labs by innovators around.</p>
                     <a href="Agenda.php" class="btn bg1 mt-4"><i class="fa fa-clone left"></i > View More >></a>
                   </div>
                 </div>
@@ -372,7 +502,7 @@
       </section>
       <section id="Speakers" class="bg3">
         <div class="container py-4">
-          <div class="row">
+          <div class="row justify-content-center">
             <div class="text-center col-12">
               <h3>Speakers</h3>
             </div>
@@ -382,41 +512,41 @@
               while ($row=mysqli_fetch_array($result)) {
                 // code...
              ?>
-            <div class="col-md-3 d-flex align-items-stretch">
-              <!--Card-->
-                  <div class="card card-cascade wider mb-4">
+            <div class="col-8 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+                <!--Card-->
+                    <div class=" card card-cascade wider mb-4">
+                      <div class="hovereffect">
 
-                    <!--Card image-->
-                    <div class="view view-cascade">
-                      <img src="admin/img/speakers/<?php echo $row['imgpath']; ?>" class="card-img-top">
-                      <a href="#!">
-                        <div class="mask rgba-dark-slight"></div>
-                      </a>
+                      <!--Card image-->
+                      <div class="hoverover view view-cascade">
+                        <img src="admin/img/speakers/<?php echo $row['imgpath']; ?>" class="card-img-top">
+                        <a href="#!">
+                          <div class="mask rgba-dark-slight"></div>
+                        </a>
+                      </div>
+                      <div class="overlay">
+                         <h2 class="mt-2">Linkedin</h2>
+                         <a class="info" href="<?php echo $row['link']; ?>" target="_blank" class="icons-sm li-ic"><i class="fa fa-linkedin fa-2x"  onMouseOver="this.style.color='#0077B5'" onMouseOut="this.style.color='#000'" style="color:black"> </i></a>
+                      </div>
                     </div>
-                    <!--/Card image-->
+                      <!--/Card image-->
 
-                    <!--Card content-->
-                    <div class="card-body card-body-cascade text-center">
-                      <!--Title-->
-                      <h4 class="card-title"><strong><?php echo $row['name']; ?></strong></h4>
-                      <h5 class="textcolor1"><strong><?php echo $row['desig']; ?></strong></h5>
+                      <!--Card content-->
+                      <div class="card-body card-body-cascade text-center">
+                        <!--Title-->
+                        <h4 class="card-title"><strong><?php echo $row['name']; ?></strong></h4>
+                        <h5 class="heh"><strong><?php echo $row['desig']; ?></strong></h5>
 
-                      <p class="card-text"> <?php echo $row['company']; ?> </p>
+                        <p class="card-text"> <?php echo $row['company']; ?> </p>
 
+                        <!--Linkedin-->
+                        <a href="<?php echo $row['link']; ?>" target="_blank" class="icons-sm li-ic"></a>
 
-                      <!--Linkedin-->
-                      <a href="<?php echo $row['link']; ?>" target="_blank" class="icons-sm li-ic"><i class="fa fa-linkedin"> </i></a>
-                      <!--Twitter-->
-                      <a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a>
-                      <!--Dribbble-->
-                      <a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a>
+                      </div>
+                      <!--/.Card content-->
 
                     </div>
-                    <!--/.Card content-->
-
-                  </div>
-                  <!--/.Card-->
-
+                    <!--/.Card-->
                 </div>
               <?php } ?>
 
@@ -438,111 +568,99 @@
             </div>
           </div>
           <!-- Grid row -->
-          <div class="row">
+          <div id="img2" class="row">
 
-          <!-- Grid column -->
-          <div class="col-lg-4 col-md-12 mb-3">
-              <div class="view overlay">
-                  <img src="admin/img/gallery/<?php echo $Imgarray[0]; ?>" class="img-fluid z-depth-1" alt="">
-                  <div class="mask flex-center rgba-green-strong">
-                      <p class="white-text">Light overlay</p>
-                  </div>
-              </div>
-          </div>
-          <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-4  mb-3">
 
-          <!-- Grid column -->
-          <div class="col-lg-4 col-md-6 mb-3 ">
-            <div class="view overlay">
-                <img src="admin/img/gallery/<?php echo $Imgarray[1]; ?>" class="img-fluid " alt="">
-                <div class="mask flex-center rgba-green-strong">
-                    <p class="white-text">Light overlay</p>
-                </div>
+              <img  src="admin/img/gallery/<?php echo $Imgarray[0]; ?>" class="img-fluid  z-depth-1"
+                alt="">
+
             </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 mb-3">
+
+              <img src="admin/img/gallery/<?php echo $Imgarray[1]; ?>" class="img-fluid  z-depth-1"
+                alt="">
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4  mb-3">
+
+              <img src="admin/img/gallery/<?php echo $Imgarray[2]; ?>" class="img-fluid  z-depth-1"
+                alt="">
+
+            </div>
+            <!-- Grid column -->
+
           </div>
-          <!-- Grid column -->
+          <!-- Grid row -->
 
-          <!-- Grid column -->
-          <div class="col-lg-4 col-md-6 mb-3">
-              <div class="view overlay">
-                  <img src="admin/img/gallery/<?php echo $Imgarray[2]; ?>" class="img-fluid z-depth-1" alt="">
-                  <div class="mask flex-center rgba-green-strong">
-                      <p class="white-text">Light overlay</p>
-                  </div>
-              </div>
+          <!-- Grid row -->
+          <div id="img3" class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mb-3">
+
+              <img src="admin/img/gallery/<?php echo $Imgarray[3]; ?>" class="img-fluid  z-depth-1"
+                alt="">
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6 mb-3">
+
+              <img src="admin/img/gallery/<?php echo $Imgarray[4]; ?>" class="img-fluid  z-depth-1"
+                alt="">
+
+            </div>
+            <!-- Grid column -->
+
           </div>
-          <!-- Grid column -->
+          <!-- Grid row -->
 
-        </div>
-        <!-- Grid row -->
-
-        <!-- Grid row -->
-        <div class="row">
-
-          <!-- Grid column -->
-          <div class="col-md-6 mb-3">
-              <div class="view overlay">
-                  <img src="admin/img/gallery/<?php echo $Imgarray[3]; ?>" class="img-fluid z-depth-1" alt="">
-                  <div class="mask flex-center rgba-green-strong">
-                      <p class="white-text">Light overlay</p>
-                  </div>
-              </div>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-6 mb-3">
-              <div class="view overlay">
-                  <img src="admin/img/gallery/<?php echo $Imgarray[4]; ?>" class="img-fluid z-depth-1" alt="">
-                  <div class="mask flex-center rgba-green-strong">
-                      <p class="white-text">Light overlay</p>
-                  </div>
-              </div>
-          </div>
-          <!-- Grid column -->
-        </div>
-        <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center">
           <div class=" col-md-3">
-          <a href="gallery.php"><button type="button" class="btn dusty-grass-gradient btn-lg btn-block">View more</button></a>
+          <a href="gallery.php"><button type="button" class="btn blue-gradient btn-lg btn-block">View more</button></a>
           </div>
         </div>
       </section>
-      <section id="Partners">
+      <section class="my-3" id="Partners">
         <div class="container-fluid">
+          <?php $select="SELECT type,imgpath from mix order by type";
+                $result = mysqli_query($select_db,$select);
+                $name="";
+                 while ($row=mysqli_fetch_array($result)) {
+                  if ($row['type']==$name) {
+                  continue;
+                  }
+                  $name=$row['type'];
+                 ?>
+
           <div class="row py-2">
             <div class="col-12">
-              <p class="h3 text-center"> Partners</p>
+              <h3 class="h3 text-center"> <?php echo $name; ?></h3>
             </div>
           </div>
           <div class="row py-4 justify-content-center">
             <?php
-              $query="select * from mix where type='partners'";
-              $result=mysqli_query($select_db,$query);
-
-              while ($row=mysqli_fetch_array($result)) {
-
-             ?>
-             <div class="col-2 py-2">
-                <a href="<?php echo $row['link']; ?>" target="_blank"> <img src="admin/img/partners/<?php echo $row['imgpath']; ?>" style="height:100px;" class="img-fluid" alt="placeholder"></a>
+            $select="SELECT type,imgpath,link from mix where type='$name'";
+                  $res = mysqli_query($select_db,$select);
+            while($row=mysqli_fetch_array($res)){
+            $imageURL = 'admin/img/sponsors/'.$row['imgpath'];
+            ?>
+             <div class="column mx-3 py-2">
+                <a href="<?php echo $row['link']; ?>" target="_blank"> <img src="<?php echo $imageURL; ?>" style="height:100px;" class="img-fluid" alt="placeholder"></a>
              </div>
           <?php } ?>
           </div>
-          <div class="row justify-content-center">
-            <div class="text-center col-12">
-              <p class="h3"> Sponsers</p>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <?php
-            $query="select * from mix where type='sponsors'";
-            $result=mysqli_query($select_db,$query);
-              while ($row=mysqli_fetch_array($result)) {
-             ?>
-             <div class="col-2 py-2">
-                <a href="<?php echo $row['link']; ?>" target="_blank"> <img src="admin/img/sponsors/<?php echo $row['imgpath']; ?>" style="height:100px;" class="img-fluid" alt="placeholder"></a>
-             </div>
-           <?php } ?>
-          </div>
+          <?php } ?>
+
         </div>
       </section>
       <section id="workWithUs" class="bg1 my-3 pt-1">
@@ -551,9 +669,10 @@
                   <div class="row justify-content-center">
               <div class="col-lg-6 pb-4">
                 <h1>Wanna reserva a stall?</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>Fill in the details and wait for our respond for you amazing work</p>
+                <p>Hurry! It will be based of first come first serve</p>
                 <div class="col-6 text-center text-md-left">
-                      <a class="btn btn-lg regButton text-white btn-block"data-toggle="modal" data-target="#orangeModalSubscription"> Send </a>
+                      <a class="btn btn-lg blue text-white btn-block" data-toggle="modal" data-target="#orangeModalSubscription"> Send </a>
                   </div>
                   <!--modal2-->
                   <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -561,7 +680,7 @@
                       <!--Content-->
                       <div class="modal-content">
                         <!--Header-->
-                        <div class="modal-header text-center"style="background-color:#61892F">
+                        <div class="modal-header text-center blue">
                           <h4 class="modal-title white-text w-100 font-weight-bold py-2">Subscribe</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="white-text">&times;</span>
@@ -607,7 +726,7 @@
 
                         <!--Footer-->
                         <div class="modal-footer justify-content-center">
-                          <a type="button" onclick="stall();" class="btn waves-effect"style="color:#61892F">Send <i class="fa fa-paper-plane-o ml-1"></i></a>
+                          <a type="button" onclick="stall();" class="btn waves-effect">Send <i class="fa fa-paper-plane-o ml-1"></i></a>
                         </div>
                       </div>
                       <!--/.Content-->
@@ -616,8 +735,9 @@
                   <!-- modal2 -->
                 </div>
               <div class="col-lg-6 pb-4">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                <h2>Have something exciting to dispaly?</h2>
+                <p>Dispaly it in the gather the full potential of the huge audience present. Interact with students, business leaders, techno-hulks, entrepreneurs and industry experts who love to live on the edge of the technological revolution</p>
+                <p>You can display it for the whole two days. And Be a part of this event </p>
               </div>
             </div>
           </div>
@@ -629,7 +749,7 @@
           <!--Content-->
           <div class="modal-content">
             <!--Header-->
-            <div class="modal-header text-center bg22">
+            <div class="modal-header text-center blue">
               <h4 class="modal-title white-text w-100 font-weight-bold py-2" >Registration</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" class="white-text">&times;</span>
@@ -638,7 +758,7 @@
 
             <!--Body-->
             <div class="modal-body">
-              <div id="Registerdiv">
+              <div class="text-white" id="Registerdiv">
 
               </div>
               <div class="md-form mb-5">
@@ -662,7 +782,7 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-              <a type="button" class="btn waves-effect" onclick="Register();" style="color:#61892F;"> Send <i class="fa fa-paper-plane-o ml-1"></i></a>
+              <a type="button" class="btn waves-effect" onclick="Register();"style="color:blue;" > Send <i class="fa fa-paper-plane-o ml-1"style="color:blue;"></i></a>
             </div>
           </div>
           <!--/.Content-->
@@ -804,8 +924,8 @@
             <!-- Grid column -->
             <div class="col-md-6 mt-md-0 mt-3">
               <!-- Content -->
-              <h5 class="text-uppercase">Footer Content</h5>
-              <p>Here you can use rows and columns here to organize your footer content.</p>
+              <h5 class="text-uppercase">TechWeekend</h5>
+              <p>For more information contact us. <br> To be updated follow us. </p>
             </div>
             <!-- Grid column -->
             <hr class="clearfix w-100 d-md-none pb-3">
@@ -815,32 +935,46 @@
                 <h5 class="text-uppercase">Links</h5>
                 <ul class="list-unstyled">
                   <li class="my-2">
-                    <a href="#home">Home</a>
+                    <a class="foot" href="#home">Home</a>
                   </li>
                   <li class="my-2">
-                    <a href="gallery.php">Gallery</a>
+                    <a class="foot" href="gallery.php">Gallery</a>
                   </li>
                   <li class="my-2">
-                    <a href="agenda.php">Agenda</a>
+                    <a class="foot" href="agenda.php">Agenda</a>
                   </li>
 
                 </ul>
               </div>
               <!-- Grid column -->
               <!-- Grid column -->
-              <div class="col-md-3 mb-md-0 mb-3">
-                <!-- Links -->
-                <h5 class="text-uppercase">Social</h5>
-                <ul class="list-unstyled">
-                  <li>
-                    <button type="button" class="btn btn-lg  light-blue darken-4"><i class="fa fa-facebook pr-1"></i> Facebook</button>                  </li>
-                  <li>
-                    <button type="button" class="btn unique-color"><i class="fa fa-linkedin"></i></button><button type="button" class="btn red"><i class="fa fa-youtube"></i></button>
-                  </li>
-                  <li>
-
-                  </li>
-                </ul>
+              <div class="col-md-3">
+              <h3 class="showcase-left">follow us</h3>
+              <br>
+              <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2 col-sm-3 col-xs-3 showcase-rightsocial1">
+              <a href="#" target="_blank">
+              <i class="fa fa-facebook fa-2x"> </i>
+              </a>
+              </div>
+              <div class="col-md-2 col-sm-3 col-xs-3 showcase-rightsocial2">
+              <a href="#" target="_blank">
+              <i class="fa fa-instagram fa-2x"> </i>
+              </a>
+              </div>
+              <div class="col-md-2 col-sm-3 col-xs-3 showcase-rightsocial3">
+              <a href="#" target="_blank">
+              <i class="fa fa-linkedin fa-2x"> </i>
+              </a>
+              </div>
+              <div class="col-md-2 col-sm-3 col-xs-3 showcase-rightsocial4">
+              <a href="#" target="_blank">
+              <i class="fa fa-twitter fa-2x"> </i>
+              </a>
+              </div>
+              <div class="col-md-2"></div>
+              </div>
               </div>
               <!-- Grid column -->
           </div>
@@ -848,7 +982,7 @@
         </div>
         <!-- Footer Links -->
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <div class="footer-copyright text-center py-3">This website is developed and maintained by <a href="http://fametechnologies.in/" target="_blank">Fame Technologies</a>
         </div>
         <!-- Copyright -->
       </footer>
